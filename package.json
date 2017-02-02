@@ -1,6 +1,6 @@
 {
-  "name": "axios-debug",
-  "version": "0.1.0",
+  "name": "axios-debug-log",
+  "version": "0.0.0",
   "description": "Axios interceptor of logging requests & responses by debug.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gerhut/axios-debug.git"
+    "url": "git+https://github.com/Gerhut/axios-debug-log.git"
   },
   "keywords": [
     "axios",
@@ -21,9 +21,9 @@
   "author": "George Chung <Gerhut@GMail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Gerhut/axios-debug/issues"
+    "url": "https://github.com/Gerhut/axios-debug-log/issues"
   },
-  "homepage": "https://github.com/Gerhut/axios-debug#readme",
+  "homepage": "https://github.com/Gerhut/axios-debug-log#readme",
   "dependencies": {
     "debug": "^2.6.0"
   },
