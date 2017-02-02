@@ -8,6 +8,8 @@
 
 Axios interceptor of logging requests &amp responses by [debug](https://www.npmjs.com/package/debug).
 
+![Screenshot](screenshot.png "Screenshot")
+
 ## Install 
 
     $ npm install --save axios axios-debug
