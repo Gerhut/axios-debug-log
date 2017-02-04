@@ -4,10 +4,10 @@
   "description": "Axios interceptor of logging requests & responses by debug.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "unit": "ava",
-    "coverage": "nyc ava && nyc report --reporter=html",
-    "test": "npm run lint && npm run unit"
+    "lint": "standard",
+    "unit": "mocha --require should --require should-sinon",
+    "test": "npm run lint && npm run unit",
+    "coverage": "nyc npm test && nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -28,15 +28,13 @@
     "debug": "^2.6.0"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
     "axios": "^0.15.0",
-    "eslint": "^3.14.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "mocha": "^3.2.0",
     "nyc": "^10.1.2",
-    "proxyquire": "^1.7.11",
-    "sinon": "^1.17.7"
+    "should": "^11.2.0",
+    "should-sinon": "0.0.5",
+    "sinon": "^1.17.7",
+    "standard": "^8.6.0"
   },
   "peerDependencies": {
     "axios": "^0.15.0"
