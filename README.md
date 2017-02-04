@@ -6,7 +6,7 @@
 [![devDependencies Status](https://david-dm.org/Gerhut/kroxy/dev-status.svg)](https://david-dm.org/Gerhut/axios-debug-log?type=dev)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-Axios interceptor of logging requests &amp responses by [debug](https://www.npmjs.com/package/debug).
+[Axios](https://www.npmjs.com/package/axios) interceptor of logging requests &amp; responses by [debug](https://www.npmjs.com/package/debug).
 
 ![Screenshot](screenshot.png "Screenshot")
 
@@ -17,7 +17,7 @@ Axios interceptor of logging requests &amp responses by [debug](https://www.npmj
 ## Node.js usage
 
 1. Install: add `require('axios-debug-log')` before any axios execution.
-2. Enable: set `DEBUG` environment variable to `axios` before start your fantastic Node.js application.
+2. Enable: set `DEBUG=axios` environment variables before start your fantastic Node.js application.
 
 ## Browser usage
 
