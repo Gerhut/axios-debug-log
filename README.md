@@ -26,6 +26,23 @@
 
 Please read [README of debug](https://github.com/visionmedia/debug#readme) for usage details.
 
+## Configuration
+
+```javascript
+    // Log content type
+    require('axios-debug-log')({
+      request: function (debug, config) {
+        debug('Request with ' + config.headers['content-type'])
+      },
+      response: function (debug, response) {
+        debug(
+          'Response with ' + response.headers['content-type'],
+          'from ' + response.config.url
+        )
+      }
+    })
+```
+
 ## License
 
 MIT

@@ -49,3 +49,28 @@ it('should logging request of axios instance', () => axios.create()({
     '200 QUX', '(BAZ http://example.com/)'
   )
 }))
+
+it('should be able to set format of response & response logging', () => {
+  const requestLogger = sinon.spy((debug, config) => debug(config.method))
+  const responseLogger = sinon.spy((debug, response) => debug(response.statusText))
+  require('.')({
+    request: requestLogger,
+    response: responseLogger
+  })
+  return axios({
+    method: 'FOO',
+    url: 'http://example.com/',
+    adapter: config => Promise.resolve({
+      status: 200,
+      statusText: 'BAR',
+      config
+    })
+  }).then(response => {
+    const debugLog = sinon.match({ namespace: 'axios' })
+    requestLogger.should.be.calledWith(debugLog, response.config)
+    responseLogger.should.be.calledWith(debugLog, response)
+    debug.log.should.be.calledTwice()
+    debug.log.firstCall.should.be.calledWith('FOO')
+    debug.log.secondCall.should.be.calledWith('BAR')
+  })
+})
