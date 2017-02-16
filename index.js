@@ -12,6 +12,16 @@ var options = {
       response.status + ' ' + response.statusText,
       '(' + response.config.method.toUpperCase() + ' ' + response.config.url + ')'
     )
+  },
+  error: function (debug, error) {
+    if (error.config) {
+      debug(
+        error.name + ': ' + error.message,
+        '(' + error.config.method.toUpperCase() + ' ' + error.config.url + ')'
+      )
+    } else {
+      debug(error.name + ': ' + error.message)
+    }
   }
 }
 
@@ -23,6 +33,9 @@ function addLogger (instance) {
   instance.interceptors.response.use(function (response) {
     options.response(debug, response)
     return response
+  }, function (error) {
+    options.error(debug, error)
+    throw error
   })
 }
 

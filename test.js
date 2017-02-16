@@ -32,6 +32,34 @@ it('should logging request', () => axios({
   )
 }))
 
+it('should log request error', () => axios({
+  method: 'FOO',
+  url: 'http://example.com/',
+  adapter: config => Promise.reject(Object.assign(TypeError('Boom'), { config }))
+}).catch(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'FOO http://example.com/'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    'TypeError: Boom', '(FOO http://example.com/)'
+  )
+}))
+
+it('should log general error', () => axios({
+  method: 'FOO',
+  url: 'http://example.com/',
+  transformRequest: () => { throw ReferenceError('Boom') }
+}).catch(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'FOO http://example.com/'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    'ReferenceError: Boom'
+  )
+}))
+
 it('should logging request of axios instance', () => axios.create()({
   method: 'BAZ',
   url: 'http://example.com/',
