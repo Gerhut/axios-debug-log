@@ -19,7 +19,7 @@
     "logging"
   ],
   "author": "George Chung <Gerhut@GMail.com>",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/Gerhut/axios-debug-log/issues"
   },
