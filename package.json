@@ -34,7 +34,7 @@
     "should": "^11.2.0",
     "should-sinon": "0.0.5",
     "sinon": "^1.17.7",
-    "standard": "^8.6.0"
+    "standard": "^9.0.0"
   },
   "peerDependencies": {
     "axios": "^0.15.0"
