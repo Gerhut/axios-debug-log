@@ -28,7 +28,7 @@
     "debug": "^2.6.3"
   },
   "devDependencies": {
-    "axios": "^0.16.1",
+    "axios": ">=0.13.0",
     "mocha": "^3.2.0",
     "nyc": "^10.2.0",
     "should": "^11.2.1",
@@ -37,6 +37,6 @@
     "standard": "^10.0.2"
   },
   "peerDependencies": {
-    "axios": "^0.15.0"
+    "axios": ">=0.13.0"
   }
 }

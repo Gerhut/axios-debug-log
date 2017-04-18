@@ -3,6 +3,13 @@ node_js:
   - stable
   - lts/boron
   - lts/argon
+env:
+  matrix:
+    - AXIOS_VERSION=0.13.0
+    - AXIOS_VERSION=*
+before_script:
+  - npm remove axios
+  - npm install axios@$AXIOS_VERSION
 after_success:
   - npm install --global nyc coveralls
   - nyc npm run unit
