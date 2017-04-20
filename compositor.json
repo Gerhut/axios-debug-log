@@ -1,0 +1,147 @@
+{
+  "name": "Gerhut/axios-debug-log",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "master",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://npm.im/axios-debug-log",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/Gerhut/axios-debug-log",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/axios-debug-log",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "axios-debug-log",
+      "subhead": "Axios interceptor of logging request & response with debug library.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "axios-debug-log: Axios interceptor of logging request & response with debug library.",
+          "url": "https://npm.im/axios-debug-log"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "Gerhut",
+          "repo": "axios-debug-log"
+        }
+      ],
+      "text": "v0.3.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p><a href=\"https://travis-ci.org/Gerhut/axios-debug-log\"><img src=\"https://travis-ci.org/Gerhut/axios-debug-log.svg?branch=master\"></a>\n<a href=\"https://coveralls.io/github/Gerhut/axios-debug-log?branch=master\"><img src=\"https://coveralls.io/repos/github/Gerhut/axios-debug-log/badge.svg?branch=master\"></a>\n<a href=\"https://david-dm.org/Gerhut/axios-debug-log\"><img src=\"https://david-dm.org/Gerhut/axios-debug-log/status.svg\"></a>\n<a href=\"https://david-dm.org/Gerhut/axios-debug-log?type=dev\"><img src=\"https://david-dm.org/Gerhut/axios-debug-log/dev-status.svg\"></a>\n<a href=\"http://standardjs.com/\"><img src=\"https://img.shields.io/badge/code%20style-standard-brightgreen.svg\"></a></p>\n<p><a href=\"https://www.npmjs.com/package/axios\">Axios</a> interceptor of logging requests &amp; responses by <a href=\"https://www.npmjs.com/package/debug\">debug</a>.</p>\n<p><img src=\"screenshot.png\"></p>\n<h2>Install</h2>\n<pre>$ npm install --<span class=\"hljs-keyword\">save</span> axios axios-<span class=\"hljs-keyword\">debug</span>-<span class=\"hljs-built_in\">log</span></pre><h2>Node.js usage</h2>\n<ol>\n<li>Install: add <code>require(&apos;axios-debug-log&apos;)</code> before any axios execution.</li>\n<li>Enable: set <code>DEBUG=axios</code> environment variables before start your fantastic Node.js application.</li>\n</ol>\n<h2>Browser usage</h2>\n<ol>\n<li>Install: add <code>require(&apos;axios-debug-log&apos;)</code> before any axios execution.</li>\n<li>Enable: set <code>localStorage.debug = &quot;axios&quot;</code> before start your fantastic web application.</li>\n</ol>\n<p>Please read <a href=\"https://github.com/visionmedia/debug#readme\">README of debug</a> for usage details.</p>\n<h2>Configuration</h2>\n<pre><span class=\"hljs-comment\">// Log content type</span>\n<span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;axios-debug-log&apos;</span>)({\n  <span class=\"hljs-attr\">request</span>: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">debug, config</span>) </span>{\n    debug(<span class=\"hljs-string\">&apos;Request with &apos;</span> + config.headers[<span class=\"hljs-string\">&apos;content-type&apos;</span>])\n  },\n  <span class=\"hljs-attr\">response</span>: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">debug, response</span>) </span>{\n    debug(\n      <span class=\"hljs-string\">&apos;Response with &apos;</span> + response.headers[<span class=\"hljs-string\">&apos;content-type&apos;</span>],\n      <span class=\"hljs-string\">&apos;from &apos;</span> + response.config.url\n    )\n  },\n  <span class=\"hljs-attr\">error</span>: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">debug, error</span>) </span>{\n    <span class=\"hljs-comment\">// Read https://www.npmjs.com/package/axios#handling-errors for more info</span>\n    debug(<span class=\"hljs-string\">&apos;Boom&apos;</span>, error)\n  }\n})</pre><h2>License</h2>\n<p>MIT</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/Gerhut/axios-debug-log",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/Gerhut",
+          "text": "Gerhut"
+        }
+      ]
+    }
+  ]
+}
