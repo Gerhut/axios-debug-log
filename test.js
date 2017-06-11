@@ -79,8 +79,8 @@ it('should logging request of axios instance', () => axios.create()({
 }))
 
 it('should be able to set format of response & response logging', () => {
-  const requestLogger = sinon.spy((debug, config) => debug(config.method))
-  const responseLogger = sinon.spy((debug, response) => debug(response.statusText))
+  const requestLogger = sinon.spy((debug, config) => debug(config.method.toUpperCase()))
+  const responseLogger = sinon.spy((debug, response) => debug(response.statusText.toUpperCase()))
   require('.')({
     request: requestLogger,
     response: responseLogger
