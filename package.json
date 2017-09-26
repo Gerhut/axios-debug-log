@@ -33,7 +33,7 @@
     "nyc": "^11.0.2",
     "should": "^13.0.0",
     "should-sinon": "0.0.6",
-    "sinon": "^3.0.0",
+    "sinon": "^4.0.0",
     "standard": "^10.0.2"
   },
   "peerDependencies": {
