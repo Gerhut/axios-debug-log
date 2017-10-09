@@ -50,9 +50,13 @@ axios.create = (function (originalCreate) {
 })(axios.create)
 
 module.exports = function (userOptions) {
-  for (var key in options) {
-    if (key in userOptions) {
-      options[key] = userOptions[key]
-    }
+  if (userOptions) {
+    Object.keys(options).forEach(function (key) {
+      if (userOptions[key]) {
+        options[key] = userOptions[key]
+      }
+    })
   }
+
+  return addLogger
 }
