@@ -1,9 +1,10 @@
 'use strict'
 
 var axios = require('axios')
-var debug = require('debug')('axios')
+var createDebug = require('debug')
 
 var options = {
+  namespace: 'axios',
   request: function (debug, config) {
     debug(config.method.toUpperCase() + ' ' + config.url)
   },
@@ -26,6 +27,8 @@ var options = {
 }
 
 function addLogger (instance) {
+  var debug = createDebug(options.namespace)
+
   instance.interceptors.request.use(function (config) {
     options.request(debug, config)
     return config
@@ -50,9 +53,13 @@ axios.create = (function (originalCreate) {
 })(axios.create)
 
 module.exports = function (userOptions) {
-  for (var key in options) {
-    if (key in userOptions) {
-      options[key] = userOptions[key]
-    }
+  if (userOptions) {
+    Object.keys(options).forEach(function (key) {
+      if (userOptions[key]) {
+        options[key] = userOptions[key]
+      }
+    })
   }
+
+  return addLogger
 }
