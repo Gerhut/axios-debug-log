@@ -1,9 +1,10 @@
 'use strict'
 
 var axios = require('axios')
-var debug = require('debug')('axios')
+var createDebug = require('debug')
 
 var options = {
+  namespace: 'axios',
   request: function (debug, config) {
     debug(config.method.toUpperCase() + ' ' + config.url)
   },
@@ -26,6 +27,8 @@ var options = {
 }
 
 function addLogger (instance) {
+  var debug = createDebug(options.namespace)
+
   instance.interceptors.request.use(function (config) {
     options.request(debug, config)
     return config
