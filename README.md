@@ -48,6 +48,18 @@ require('axios-debug-log')({
 })
 ```
 
+## Customization
+
+Use `require('axios-debug-log').addLogger(instance, debug)` to add custom debug
+logger to custom instance.
+
+```javascript
+var github = axios.create({ baseURL: 'https://api.github.com/' })
+var githubLogger = require('debug')('github')
+require('axios-debug-log').addLogger(github, githubLogger)
+github('/user')
+```
+
 ## License
 
 MIT

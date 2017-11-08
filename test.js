@@ -78,6 +78,28 @@ it('should logging request of axios instance', () => axios.create()({
   )
 }))
 
+it('should add custom debug logger to axios instance', () => {
+  const spy = sinon.spy()
+  const instance = axios.create({})
+  require('.').addLogger(instance, spy)
+  return instance({
+    url: 'http://example.com/',
+    adapter: config => Promise.resolve({
+      status: 200,
+      statusText: 'OK',
+      config
+    })
+  }).then(() => {
+    spy.should.be.calledTwice()
+    spy.firstCall.should.be.calledWithExactly(
+      'GET http://example.com/'
+    )
+    spy.secondCall.should.be.calledWithExactly(
+      '200 OK', '(GET http://example.com/)'
+    )
+  })
+})
+
 it('should be able to set format of response & response logging', () => {
   const requestLogger = sinon.spy((debug, config) => debug(config.method.toUpperCase()))
   const responseLogger = sinon.spy((debug, response) => debug(response.statusText.toUpperCase()))
