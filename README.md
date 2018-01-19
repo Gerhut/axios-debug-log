@@ -11,10 +11,10 @@
 
 ![Screenshot](screenshot.png "Screenshot")
 
-## Install 
+## Install
 
     $ npm install --save axios axios-debug-log
-    
+
 ## Node.js usage
 
 1. Install: add `require('axios-debug-log')` before any axios execution.
@@ -26,6 +26,14 @@
 2. Enable: set `localStorage.debug = "axios"` before start your fantastic web application.
 
 Please read [README of debug](https://github.com/visionmedia/debug#readme) for usage details.
+
+## ES6 quick start
+
+```js
+import axiosDebugLog from "axios-debug-log"
+
+axiosDebugLog()
+```
 
 ## Configuration
 

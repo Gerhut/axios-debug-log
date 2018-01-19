@@ -50,7 +50,7 @@ axios.create = (function (originalCreate) {
   }
 })(axios.create)
 
-exports = module.exports = function (userOptions) {
+exports = module.exports = function (userOptions = {}) {
   for (var key in options) {
     if (key in userOptions) {
       options[key] = userOptions[key]
