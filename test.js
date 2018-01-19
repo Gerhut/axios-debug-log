@@ -124,3 +124,8 @@ it('should be able to set format of response & response logging', () => {
     debug.log.secondCall.should.be.calledWith('BAR')
   })
 })
+
+it('should be able to handle empty user options', () => {
+  const init = require('.')
+  init.should.not.throw()
+})
