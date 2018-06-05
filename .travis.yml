@@ -3,7 +3,6 @@ node_js:
   - stable
   - lts/carbon
   - lts/boron
-  - lts/argon
 env:
   matrix:
     - AXIOS_VERSION=0.13.0
