@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/Gerhut/axios-debug-log#readme",
   "dependencies": {
-    "debug": "^3.1.0"
+    "debug": "^4.0.0"
   },
   "devDependencies": {
     "axios": ">=0.13.0",
