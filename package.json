@@ -30,7 +30,7 @@
   "devDependencies": {
     "axios": ">=0.13.0",
     "mocha": "^5.0.0",
-    "nyc": "^12.0.2",
+    "nyc": "^13.1.0",
     "should": "^13.1.3",
     "should-sinon": "0.0.6",
     "sinon": "^6.0.0",
