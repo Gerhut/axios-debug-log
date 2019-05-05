@@ -18,7 +18,7 @@
     "debug",
     "logging"
   ],
-  "author": "George Chung <Gerhut@GMail.com>",
+  "author": "George Cheng <Gerhut@GMail.com>",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/Gerhut/axios-debug-log/issues"
