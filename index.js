@@ -2,22 +2,35 @@
 
 var axios = require('axios')
 var axiosDebug = require('debug')('axios')
+var querystring = require('querystring')
+
+const encodeParams = (params) => params
+  ? '?' + querystring.encode(params)
+  : ''
 
 var options = {
   request: function (debug, config) {
-    debug(config.method.toUpperCase() + ' ' + config.url)
+    const query = encodeParams(config.params)
+
+    debug(
+      config.method.toUpperCase() + ' ' + config.url + query
+    )
   },
   response: function (debug, response) {
+    const query = encodeParams(response.config.params)
+
     debug(
       response.status + ' ' + response.statusText,
-      '(' + response.config.method.toUpperCase() + ' ' + response.config.url + ')'
+      '(' + response.config.method.toUpperCase() + ' ' + response.config.url + query + ')'
     )
   },
   error: function (debug, error) {
     if (error.config) {
+      const query = encodeParams(error.config.params)
+
       debug(
         error.name + ': ' + error.message,
-        '(' + error.config.method.toUpperCase() + ' ' + error.config.url + ')'
+        '(' + error.config.method.toUpperCase() + ' ' + error.config.url + query + ')'
       )
     } else {
       debug(error.name + ': ' + error.message)

@@ -46,6 +46,23 @@ it('should log request error', () => axios({
   )
 }))
 
+it('should log query params of request in error', () => axios({
+  method: 'FOO',
+  url: 'http://example.com/',
+  params: {
+    name: 'value'
+  },
+  adapter: config => Promise.reject(Object.assign(TypeError('Boom'), { config }))
+}).catch(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'FOO http://example.com/?name=value'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    'TypeError: Boom', '(FOO http://example.com/?name=value)'
+  )
+}))
+
 it('should log general error', () => axios({
   method: 'FOO',
   url: 'http://example.com/',
@@ -75,6 +92,48 @@ it('should logging request of axios instance', () => axios.create()({
   )
   debug.log.secondCall.should.be.calledWithExactly(
     '200 QUX', '(BAZ http://example.com/)'
+  )
+}))
+
+it('should log params of the request of axios instance', () => axios.create()({
+  method: 'GET',
+  url: 'http://example.com/',
+  params: {
+    name: 'value'
+  },
+  adapter: config => Promise.resolve({
+    status: 200,
+    statusText: 'BAR',
+    config
+  })
+}).then(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'GET http://example.com/?name=value'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    '200 BAR', '(GET http://example.com/?name=value)'
+  )
+}))
+
+it('should log params of the request of axios instance with special characters', () => axios.create()({
+  method: 'GET',
+  url: 'http://example.com/',
+  params: {
+    'parameter name': '&'
+  },
+  adapter: config => Promise.resolve({
+    status: 200,
+    statusText: 'BAR',
+    config
+  })
+}).then(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'GET http://example.com/?parameter%20name=%26'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    '200 BAR', '(GET http://example.com/?parameter%20name=%26)'
   )
 }))
 
