@@ -116,6 +116,53 @@ it('should log params of the request of axios instance', () => axios.create()({
   )
 }))
 
+it('should use axios default params when logging the URL', () => axios.create({
+  params: {
+    foo: 'bar'
+  },
+  paramsSerializer: params => {
+    const querystring = require('querystring')
+    return querystring.encode(params) + '&baz=qux'
+  }
+})({
+  method: 'GET',
+  url: 'http://example.com/',
+  adapter: config => Promise.resolve({
+    status: 200,
+    statusText: 'BAR',
+    config
+  })
+}).then(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'GET http://example.com/?foo=bar&baz=qux'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    '200 BAR', '(GET http://example.com/?foo=bar&baz=qux)'
+  )
+}))
+
+it('should log params from both the url and the params of the request', () => axios.create()({
+  method: 'GET',
+  url: 'http://example.com/?foo=bar',
+  params: {
+    name: 'value'
+  },
+  adapter: config => Promise.resolve({
+    status: 200,
+    statusText: 'BAR',
+    config
+  })
+}).then(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'GET http://example.com/?foo=bar&name=value'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    '200 BAR', '(GET http://example.com/?foo=bar&name=value)'
+  )
+}))
+
 it('should log params of the request of axios instance with special characters', () => axios.create()({
   method: 'GET',
   url: 'http://example.com/',
@@ -130,10 +177,10 @@ it('should log params of the request of axios instance with special characters',
 }).then(() => {
   debug.log.should.be.calledTwice()
   debug.log.firstCall.should.be.calledWithExactly(
-    'GET http://example.com/?parameter%20name=%26'
+    'GET http://example.com/?parameter+name=%26'
   )
   debug.log.secondCall.should.be.calledWithExactly(
-    '200 BAR', '(GET http://example.com/?parameter%20name=%26)'
+    '200 BAR', '(GET http://example.com/?parameter+name=%26)'
   )
 }))
 

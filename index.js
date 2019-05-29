@@ -1,36 +1,30 @@
 'use strict'
 
 var axios = require('axios')
+var buildURL = require('axios/lib/helpers/buildURL')
 var axiosDebug = require('debug')('axios')
-var querystring = require('querystring')
 
-const encodeParams = (params) => params
-  ? '?' + querystring.encode(params)
-  : ''
+const getURL = (config) => {
+  return buildURL(config.url, config.params, config.paramsSerializer)
+}
 
 var options = {
   request: function (debug, config) {
-    const query = encodeParams(config.params)
-
     debug(
-      config.method.toUpperCase() + ' ' + config.url + query
+      config.method.toUpperCase() + ' ' + getURL(config)
     )
   },
   response: function (debug, response) {
-    const query = encodeParams(response.config.params)
-
     debug(
       response.status + ' ' + response.statusText,
-      '(' + response.config.method.toUpperCase() + ' ' + response.config.url + query + ')'
+      '(' + response.config.method.toUpperCase() + ' ' + getURL(response.config) + ')'
     )
   },
   error: function (debug, error) {
     if (error.config) {
-      const query = encodeParams(error.config.params)
-
       debug(
         error.name + ': ' + error.message,
-        '(' + error.config.method.toUpperCase() + ' ' + error.config.url + query + ')'
+        '(' + error.config.method.toUpperCase() + ' ' + getURL(error.config) + ')'
       )
     } else {
       debug(error.name + ': ' + error.message)
