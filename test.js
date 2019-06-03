@@ -117,9 +117,6 @@ it('should log params of the request of axios instance', () => axios.create()({
 }))
 
 it('should use axios default params when logging the URL', () => axios.create({
-  params: {
-    foo: 'bar'
-  },
   paramsSerializer: params => {
     const querystring = require('querystring')
     return querystring.encode(params) + '&baz=qux'
@@ -127,6 +124,9 @@ it('should use axios default params when logging the URL', () => axios.create({
 })({
   method: 'GET',
   url: 'http://example.com/',
+  params: {
+    foo: 'bar'
+  },
   adapter: config => Promise.resolve({
     status: 200,
     statusText: 'BAR',
