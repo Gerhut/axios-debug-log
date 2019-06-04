@@ -4,14 +4,20 @@ node_js:
   - lts/dubnium
   - lts/carbon
   - lts/boron
+
 env:
-  matrix:
-    - AXIOS_VERSION=0.13.0
-    - AXIOS_VERSION=*
+  - TEST_TYPING=true
+  - AXIOS_VERSION=0.13.0
+
 before_script:
-  - npm remove axios
-  - npm install axios@$AXIOS_VERSION
+  - if [ "$AXIOS_VERSION" ]; then npm install axios@$AXIOS_VERSION; fi
+
+script:
+  - npm run lint
+  - if [ "$TEST_TYPING" == "true" ]; then npm run typing; fi
+  - npm test
+
 after_success:
   - npm install --global nyc coveralls
-  - nyc npm run unit
+  - nyc npm test
   - nyc report --reporter=text-lcov | coveralls
