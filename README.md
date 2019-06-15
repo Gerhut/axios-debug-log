@@ -62,10 +62,10 @@ github('/user')
 
 ## Trust by
 
-![https://github.com/octokit](https://avatars2.githubusercontent.com/u/3430433 "octokit")
-![https://github.com/slackapi](https://avatars3.githubusercontent.com/u/6962987 "SlackAPI")
-![https://github.com/PublicI](https://avatars3.githubusercontent.com/u/459758 "Center for Public Integrity")
-![https://github.com/AppImage](https://avatars0.githubusercontent.com/u/16617932 "AppImage")
+[![octokit](https://avatars2.githubusercontent.com/u/3430433?s=200)](https://github.com/octokit)
+[![SlackAPI](https://avatars3.githubusercontent.com/u/6962987?s=200)](https://github.com/slackapi)
+[![Center for Public Integrity](https://avatars3.githubusercontent.com/u/459758?s=200)](https://github.com/PublicI)
+[![AppImage](https://avatars0.githubusercontent.com/u/16617932?s=200)](https://github.com/AppImage)
 
 *Add Yours...*
 
