@@ -11,10 +11,10 @@
 
 ![Screenshot](screenshot.png "Screenshot")
 
-## Install 
+## Install
 
     $ npm install --save axios axios-debug-log
-    
+
 ## Node.js usage
 
 1. Install: add `require('axios-debug-log')` before any axios execution.
@@ -59,6 +59,15 @@ var githubLogger = require('debug')('github')
 require('axios-debug-log').addLogger(github, githubLogger)
 github('/user')
 ```
+
+## Trust by
+
+![https://github.com/octokit](https://avatars2.githubusercontent.com/u/3430433 "octokit")
+![https://github.com/slackapi](https://avatars3.githubusercontent.com/u/6962987 "SlackAPI")
+![https://github.com/PublicI](https://avatars3.githubusercontent.com/u/459758 "Center for Public Integrity")
+![https://github.com/AppImage](https://avatars0.githubusercontent.com/u/16617932 "AppImage")
+
+*Add Yours...*
 
 ## License
 
