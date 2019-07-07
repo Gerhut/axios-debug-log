@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/Gerhut/axios-debug-log#readme",
   "dependencies": {
+    "@types/debug": "^4.0.0",
     "debug": "^4.0.0"
   },
   "devDependencies": {
-    "@types/debug": "^4.0.0",
     "axios": ">=0.13.0",
     "mocha": "^6.1.4",
     "nyc": "^14.0.0",
