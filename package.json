@@ -7,7 +7,8 @@
     "lint": "standard",
     "typing": "tsc",
     "test": "mocha",
-    "coverage": "nyc mocha && nyc report --reporter=html"
+    "coverage": "nyc mocha",
+    "postcoverage": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
