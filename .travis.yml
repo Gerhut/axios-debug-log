@@ -3,7 +3,6 @@ node_js:
   - stable
   - lts/dubnium
   - lts/carbon
-  - lts/boron
 
 env:
   - TEST_TYPING=true
