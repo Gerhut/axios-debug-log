@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "standard",
     "typing": "tsc",
-    "test": "mocha --require should --require should-sinon",
-    "coverage": "nyc npm test && nyc report --reporter=html"
+    "test": "mocha",
+    "coverage": "nyc mocha && nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
