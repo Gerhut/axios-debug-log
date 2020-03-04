@@ -206,6 +206,27 @@ it('should add custom debug logger to axios instance', () => {
   })
 })
 
+it('should logging request with baseURL', async () => {
+  return axios.create()({
+    method: 'BAZ',
+    baseURL: 'http://example.com/',
+    url: '/path',
+    adapter: config => Promise.resolve({
+      status: 200,
+      statusText: 'QUX',
+      config
+    })
+  }).then(() => {
+    debug.log.should.be.calledTwice()
+    debug.log.firstCall.should.be.calledWithExactly(
+      'BAZ http://example.com/path'
+    )
+    debug.log.secondCall.should.be.calledWithExactly(
+      '200 QUX', '(BAZ http://example.com/path)'
+    )
+  })
+})
+
 it('should be able to set format of response & response logging', () => {
   const requestLogger = sinon.spy((debug, config) => debug(config.method.toUpperCase()))
   const responseLogger = sinon.spy((debug, response) => debug(response.statusText.toUpperCase()))

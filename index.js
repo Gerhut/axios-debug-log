@@ -1,11 +1,13 @@
 'use strict'
 
+var { URL } = require('url')
 var axios = require('axios')
 var buildURL = require('axios/lib/helpers/buildURL')
 var axiosDebug = require('debug')('axios')
 
 const getURL = (config) => {
-  return buildURL(config.url, config.params, config.paramsSerializer)
+  const fullURL = new URL(config.url, config.baseURL)
+  return buildURL(fullURL.toString(), config.params, config.paramsSerializer)
 }
 
 var options = {
