@@ -227,6 +227,48 @@ it('should logging request with baseURL', async () => {
   })
 })
 
+it('should logging request with baseURL includes first part of path', async () => {
+  return axios.create()({
+    method: 'BAZ',
+    baseURL: 'http://example.com/foo',
+    url: '/bar',
+    adapter: config => Promise.resolve({
+      status: 200,
+      statusText: 'QUX',
+      config
+    })
+  }).then(() => {
+    debug.log.should.be.calledTwice()
+    debug.log.firstCall.should.be.calledWithExactly(
+      'BAZ http://example.com/foo/bar'
+    )
+    debug.log.secondCall.should.be.calledWithExactly(
+      '200 QUX', '(BAZ http://example.com/foo/bar)'
+    )
+  })
+})
+
+it('should not logging request with baseURL when requested URL absolute', async () => {
+  return axios.create()({
+    method: 'BAZ',
+    baseURL: 'http://first.com/foo',
+    url: 'http://second.com/bar',
+    adapter: config => Promise.resolve({
+      status: 200,
+      statusText: 'QUX',
+      config
+    })
+  }).then(() => {
+    debug.log.should.be.calledTwice()
+    debug.log.firstCall.should.be.calledWithExactly(
+      'BAZ http://second.com/bar'
+    )
+    debug.log.secondCall.should.be.calledWithExactly(
+      '200 QUX', '(BAZ http://second.com/bar)'
+    )
+  })
+})
+
 it('should be able to set format of response & response logging', () => {
   const requestLogger = sinon.spy((debug, config) => debug(config.method.toUpperCase()))
   const responseLogger = sinon.spy((debug, response) => debug(response.statusText.toUpperCase()))

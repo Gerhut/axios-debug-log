@@ -1,12 +1,24 @@
 'use strict'
 
-var { URL } = require('url')
 var axios = require('axios')
+var isAbsoluteURL = require('axios/lib/helpers/isAbsoluteURL')
+var combineURLs = require('axios/lib/helpers/combineURLs')
 var buildURL = require('axios/lib/helpers/buildURL')
 var axiosDebug = require('debug')('axios')
 
+/**
+ * Copy paste from Axios because it appears only in version 0.19.1
+ * @see https://github.com/axios/axios/blob/v0.19.1/lib/core/buildFullPath.js
+ */
+function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+}
+
 const getURL = (config) => {
-  const fullURL = new URL(config.url, config.baseURL)
+  const fullURL = buildFullPath(config.baseURL, config.url)
   return buildURL(fullURL.toString(), config.params, config.paramsSerializer)
 }
 
