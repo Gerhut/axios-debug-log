@@ -6,15 +6,20 @@ var combineURLs = require('axios/lib/helpers/combineURLs')
 var buildURL = require('axios/lib/helpers/buildURL')
 var axiosDebug = require('debug')('axios')
 
-/**
- * Copy paste from Axios because it appears only in version 0.19.1
- * @see https://github.com/axios/axios/blob/v0.19.1/lib/core/buildFullPath.js
- */
-function buildFullPath(baseURL, requestedURL) {
-  if (baseURL && !isAbsoluteURL(requestedURL)) {
-    return combineURLs(baseURL, requestedURL);
+var buildFullPath;
+try {
+  buildFullPath = require('axios/lib/core/buildFullPath')
+} catch(err) {
+  /**
+   * Copy paste from Axios because it appears only in version 0.19.1
+   * @see https://github.com/axios/axios/blob/v0.19.1/lib/core/buildFullPath.js
+   */
+  buildFullPath = (baseURL, requestedURL) => {
+    if (baseURL && !isAbsoluteURL(requestedURL)) {
+      return combineURLs(baseURL, requestedURL)
+    }
+    return requestedURL
   }
-  return requestedURL;
 }
 
 const getURL = (config) => {
