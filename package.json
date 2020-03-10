@@ -3,6 +3,10 @@
   "version": "0.6.2",
   "description": "Axios interceptor of logging requests & responses by debug.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "lint": "standard",
     "typing": "tsc",
