@@ -1,6 +1,8 @@
 import axios from 'axios';
 import debug from 'debug';
-import config, { addLogger } from '.';
+import config = require('.');
+
+const { addLogger } = config;
 
 config({
   request: function (debug, config) {
