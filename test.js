@@ -32,6 +32,25 @@ it('should logging request', () => axios({
   )
 }))
 
+it('should log the url with baseURL', () => axios({
+  method: 'FOO',
+  baseURL: '/foo',
+  url: '/bar',
+  adapter: config => Promise.resolve({
+    status: 200,
+    statusText: 'BAR',
+    config
+  })
+}).then(() => {
+  debug.log.should.be.calledTwice()
+  debug.log.firstCall.should.be.calledWithExactly(
+    'FOO /foo/bar'
+  )
+  debug.log.secondCall.should.be.calledWithExactly(
+    '200 BAR', '(FOO /foo/bar)'
+  )
+}))
+
 it('should log request error', () => axios({
   method: 'FOO',
   url: 'http://example.com/',
