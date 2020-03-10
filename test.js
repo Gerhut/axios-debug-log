@@ -14,7 +14,7 @@ beforeEach(() => {
   debug.log = sinon.spy()
 })
 
-it('should logging request', () => axios({
+it('should log request', () => axios({
   method: 'FOO',
   url: 'http://example.com/',
   adapter: config => Promise.resolve({
@@ -96,7 +96,7 @@ it('should log general error', () => axios({
   )
 }))
 
-it('should logging request of axios instance', () => axios.create()({
+it('should log request of axios instance', () => axios.create()({
   method: 'BAZ',
   url: 'http://example.com/',
   adapter: config => Promise.resolve({
