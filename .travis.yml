@@ -6,7 +6,7 @@ node_js:
 
 env:
   - TEST_TYPING=true
-  - AXIOS_VERSION=0.13.0
+  - AXIOS_VERSION=0.17.0
 
 before_script:
   - if [ "$AXIOS_VERSION" ]; then npm install axios@$AXIOS_VERSION; fi
