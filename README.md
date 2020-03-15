@@ -1,6 +1,5 @@
 # axios-debug-log
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Gerhut/axios-debug-log.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/Gerhut/axios-debug-log.svg?branch=master)](https://travis-ci.org/Gerhut/axios-debug-log)
 [![Coverage Status](https://coveralls.io/repos/github/Gerhut/axios-debug-log/badge.svg?branch=master)](https://coveralls.io/github/Gerhut/axios-debug-log?branch=master)
 [![dependencies Status](https://david-dm.org/Gerhut/axios-debug-log/status.svg)](https://david-dm.org/Gerhut/axios-debug-log)
