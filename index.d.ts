@@ -8,7 +8,7 @@ declare interface UserOptions {
 }
 
 declare const config: ((userOptions: UserOptions) => void) & {
-  addLogger(instance: AxiosInstance, debug: Debugger): void;
+  addLogger(instance: AxiosInstance, debug?: Debugger): void;
 }
 
 export = config;
