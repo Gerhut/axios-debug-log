@@ -65,8 +65,9 @@ github('/user')
 [![SlackAPI](https://avatars3.githubusercontent.com/u/6962987?s=200)](https://github.com/slackapi)
 [![Center for Public Integrity](https://avatars3.githubusercontent.com/u/459758?s=200)](https://github.com/PublicI)
 [![AppImage](https://avatars0.githubusercontent.com/u/16617932?s=200)](https://github.com/AppImage)
+[![pytorch](https://avatars0.githubusercontent.com/u/21003710?s=200)](https://github.com/pytorch)
 
-*Add Yours...*
+*And Yours...*
 
 ## License
 
