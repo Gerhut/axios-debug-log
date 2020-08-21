@@ -41,7 +41,7 @@
     "should-sinon": "0.0.6",
     "sinon": "^9.0.0",
     "standard": "^14.0.0",
-    "typescript": "^3.5.1"
+    "typescript": "^4.0.2"
   },
   "peerDependencies": {
     "axios": ">=0.17.0"
