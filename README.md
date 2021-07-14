@@ -16,13 +16,31 @@
 
 ## Node.js usage
 
-1. Install: add `require('axios-debug-log')` before any axios execution.
-2. Enable: set `DEBUG=axios` environment variables before start your fantastic Node.js application.
+> 1. Install: add `require('axios-debug-log')` before any axios execution.
+> 2. Enable: set `DEBUG=axios` environment variables before start your fantastic Node.js application.
+
+Or
+
+> Add `require('axios-debug-log/enable')` before any axios execution
+> to install and enable.
+
+Or
+
+> Run DEBUG=axios node --require axios-debug-log \[entrypoint.js\]
+
+Or
+
+> Run node --require axios-debug-log/enable \[entrypoint.js\]
 
 ## Browser usage
 
-1. Install: add `require('axios-debug-log')` before any axios execution.
-2. Enable: set `localStorage.debug = "axios"` before start your fantastic web application.
+> 1. Install: add `require('axios-debug-log')` before any axios execution.
+> 2. Enable: set `localStorage.debug = "axios"` before start your fantastic web application.
+
+Or
+
+> Add `require('axios-debug-log/enable')` before any axios execution
+> to install and enable.
 
 Please read [README of debug](https://github.com/visionmedia/debug#readme) for usage details.
 
