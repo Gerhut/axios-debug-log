@@ -1,6 +1,6 @@
 # axios-debug-log
 
-[![Build Status](https://travis-ci.org/Gerhut/axios-debug-log.svg?branch=master)](https://travis-ci.org/Gerhut/axios-debug-log)
+[![Node.js CI](https://github.com/Gerhut/axios-debug-log/actions/workflows/ci.yaml/badge.svg)](https://github.com/Gerhut/axios-debug-log/actions/workflows/ci.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/Gerhut/axios-debug-log/badge.svg?branch=master)](https://coveralls.io/github/Gerhut/axios-debug-log?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
