@@ -35,7 +35,7 @@
     "debug": "^4.0.0"
   },
   "devDependencies": {
-    "axios": ">=0.17.0",
+    "axios": ">=0.18.0",
     "mocha": "^8.0.0",
     "nyc": "^15.0.0",
     "should": "^13.1.3",
