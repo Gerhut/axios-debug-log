@@ -6,7 +6,7 @@ const { addLogger } = config;
 
 config({
   request: function (debug, config) {
-    debug('Request with ' + config.headers['content-type'])
+    debug('Request with ' + config.headers!['content-type'])
   },
   response: function (debug, response) {
     debug(
