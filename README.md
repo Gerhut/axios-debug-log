@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/Gerhut/axios-debug-log.svg?branch=master)](https://travis-ci.org/Gerhut/axios-debug-log)
 [![Coverage Status](https://coveralls.io/repos/github/Gerhut/axios-debug-log/badge.svg?branch=master)](https://coveralls.io/github/Gerhut/axios-debug-log?branch=master)
-[![dependencies Status](https://david-dm.org/Gerhut/axios-debug-log/status.svg)](https://david-dm.org/Gerhut/axios-debug-log)
-[![devDependencies Status](https://david-dm.org/Gerhut/axios-debug-log/dev-status.svg)](https://david-dm.org/Gerhut/axios-debug-log?type=dev)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 [Axios](https://www.npmjs.com/package/axios) interceptor of logging requests &amp; responses by [debug](https://www.npmjs.com/package/debug).
