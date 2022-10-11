@@ -7,7 +7,7 @@ var URL_KEY = '__AXIOS-DEBUG-LOG_URL__'
 
 var options = {
   request: function (debug, config) {
-    var url = new axios.Axios({}).getUri(config)
+    var url = axios.getUri(config)
     Object.defineProperty(config, URL_KEY, { value: url })
     debug(
       config.method.toUpperCase() + ' ' + url
