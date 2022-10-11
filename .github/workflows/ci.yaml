@@ -24,15 +24,8 @@ jobs:
         - lts/dubnium
         axios-version:
         - latest
-        - ^0.26
-        - ^0.25
-        - ^0.24
-        - ^0.23
-        - ^0.22
-        - ^0.21
-        - ^0.20
-        - ^0.19
-        - ^0.18
+        - ~1.1.0
+        - ~1.0.0
 
     steps:
     - uses: actions/checkout@v3
