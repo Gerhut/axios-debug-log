@@ -1,24 +1,13 @@
 'use strict'
 
 var axios = require('axios')
-var isAbsoluteURL = require('axios/lib/helpers/isAbsoluteURL')
-var buildURL = require('axios/lib/helpers/buildURL')
-var combineURLs = require('axios/lib/helpers/combineURLs')
 var axiosDebug = require('debug')('axios')
 
 var URL_KEY = '__AXIOS-DEBUG-LOG_URL__'
 
-function getURL (config) {
-  var url = config.url
-  if (config.baseURL && !isAbsoluteURL(url)) {
-    url = combineURLs(config.baseURL, url)
-  }
-  return buildURL(url, config.params, config.paramsSerializer)
-}
-
 var options = {
   request: function (debug, config) {
-    var url = getURL(config)
+    var url = new axios.Axios({}).getUri(config)
     Object.defineProperty(config, URL_KEY, { value: url })
     debug(
       config.method.toUpperCase() + ' ' + url
