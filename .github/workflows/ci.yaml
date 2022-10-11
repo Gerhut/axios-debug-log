@@ -21,7 +21,6 @@ jobs:
         - lts/gallium
         - lts/fermium
         - lts/erbium
-        - lts/dubnium
         axios-version:
         - latest
         - ~1.1.0
