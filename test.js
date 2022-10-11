@@ -135,7 +135,7 @@ it('should log params of the request of axios instance', () => axios.create()({
   )
 }))
 
-it.only('should use axios default params when logging the URL', () => axios.create({
+it('should use axios default params when logging the URL', () => axios.create({
   params: {
     foo: 'bar'
   },
