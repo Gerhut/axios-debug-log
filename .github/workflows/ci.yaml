@@ -21,18 +21,10 @@ jobs:
         - lts/gallium
         - lts/fermium
         - lts/erbium
-        - lts/dubnium
         axios-version:
         - latest
-        - ^0.26
-        - ^0.25
-        - ^0.24
-        - ^0.23
-        - ^0.22
-        - ^0.21
-        - ^0.20
-        - ^0.19
-        - ^0.18
+        - ~1.1.0
+        - ~1.0.0
 
     steps:
     - uses: actions/checkout@v3
@@ -43,7 +35,7 @@ jobs:
     - run: |
         npm install
         npm install axios@${{ matrix.axios-version }}
-        npm run lint
+        # npm run lint
         npm run typing
         npx nyc --reporter=text --reporter=lcov npm test
     - name: Coveralls
