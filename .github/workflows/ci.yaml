@@ -35,7 +35,7 @@ jobs:
     - run: |
         npm install
         npm install axios@${{ matrix.axios-version }}
-        # npm run lint
+        npm run lint
         npm run typing
         npx nyc --reporter=text --reporter=lcov npm test
     - name: Coveralls
