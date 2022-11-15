@@ -1,6 +1,6 @@
 {
   "name": "axios-debug-log",
-  "version": "0.8.4",
+  "version": "1.0.0",
   "description": "Axios interceptor of logging requests & responses by debug.",
   "main": "index.js",
   "files": [
