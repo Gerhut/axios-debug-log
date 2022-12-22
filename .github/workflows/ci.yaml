@@ -18,6 +18,7 @@ jobs:
       matrix:
         node-version:
         - current
+        - lts/hydrogen
         - lts/gallium
         - lts/fermium
         - lts/erbium
