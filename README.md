@@ -30,6 +30,16 @@ Or
 
 > Run node --require axios-debug-log/enable \[entrypoint.js\]
 
+OR
+> 1. Install: add when using ES modules (type: module) before any axios execution.
+> ```js
+> import { createRequire } from 'module';
+> const require = createRequire(import.meta.url);
+> require('axios-debug-log');
+> const axios = require('axios');
+> ```
+> 2.  Enable: set `DEBUG=axios` environment variables before start your fantastic Node.js application.
+
 ## Browser usage
 
 > 1. Install: add `require('axios-debug-log')` before any axios execution.
