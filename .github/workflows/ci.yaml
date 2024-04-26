@@ -28,16 +28,16 @@ jobs:
         - ~1.0.0
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
         npm install
         npm install axios@${{ matrix.axios-version }}
-        npm run lint
-        npm run typing
+        test '${{ matrix.node-version }}' = 'current' && npm run lint
+        test '${{ matrix.node-version }}' = 'current' && npm run typing
         npx nyc --reporter=text --reporter=lcov npm test
     - name: Coveralls
       uses: coverallsapp/github-action@master
